@@ -1,6 +1,4 @@
-
-  
-import { Stars, Rocket, Heart, Sun, Cloud, Target, Compass, ThumbsUp, Headphones, Calendar} from "lucide-react";
+  import { Stars, Rocket, Heart, Sun, Cloud, Target, Compass, ThumbsUp, Headphones, Calendar} from "lucide-react";
 
 const AuthImagePattern = ({ title, subtitle }) => {
   const icons = [Stars, Rocket, Heart, Sun, Cloud, Target, Compass, ThumbsUp, Headphones, Calendar]
