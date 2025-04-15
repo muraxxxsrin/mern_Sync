@@ -1,4 +1,7 @@
 import jwt from "jsonwebtoken";
+import CryptoJS from "crypto-js";
+
+
 
 export const generateToken = (userId, res) => {
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
@@ -13,4 +16,10 @@ export const generateToken = (userId, res) => {
   });
 
   return token;
+};
+
+const ENCRYPTION_SECRET = "12345678901234567890123456789012";
+
+export const encryptText = (plainText) => {
+  return CryptoJS.AES.encrypt(plainText, ENCRYPTION_SECRET).toString();
 };

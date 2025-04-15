@@ -1,6 +1,6 @@
 import User from "../models/user.model.js";
 import Message from "../models/message.model.js";
-
+import { encryptText } from "../lib/utils.js";
 import cloudinary from "../lib/cloudinary.js";
 import { getReceiverSocketId, io } from "../lib/socket.js";
 
@@ -40,7 +40,7 @@ export const sendMessage = async (req, res) => {
     const { text, image } = req.body;
     const { id: receiverId } = req.params;
     const senderId = req.user._id;
-
+    const encryptedText = text ? encryptText(text) : null;
     let imageUrl;
     if (image) {
       // Upload base64 image to cloudinary
@@ -51,7 +51,7 @@ export const sendMessage = async (req, res) => {
     const newMessage = new Message({
       senderId,
       receiverId,
-      text,
+      text:encryptedText,
       image: imageUrl,
     });
 
