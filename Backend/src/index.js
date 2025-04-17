@@ -20,16 +20,25 @@ app.use(cors({
 app.use("/api/auth",authRoutes);  
 app.use("/api/messages",messageRoutes); 
 
-if(process.env.NODE_ENV==="production"){
-    // app.use(express.static(path.join(__dirname,"../Frontend/Chat/dist")));
-    app.use(express.static(path.join(__dirname,"Frontend","Chat","dist")));
+// if(process.env.NODE_ENV==="production"){
+//     // app.use(express.static(path.join(__dirname,"../Frontend/Chat/dist")));
+//     app.use(express.static(path.join(__dirname,"Frontend","Chat","dist")));
     
 
-    app.get("*",(req,res)=>{
-        //res.sendFile(path.join(__dirname,"../Frontend/Chat","dist","index.html"));
-         res.sendFile(path.join(__dirname,"Frontend","Chat","dist","index.html"));
-    }) 
-}
+//     app.get("*",(req,res)=>{
+//         //res.sendFile(path.join(__dirname,"../Frontend/Chat","dist","index.html"));
+//          res.sendFile(path.join(__dirname,"Frontend","Chat","dist","index.html"));
+//     }) 
+// }
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../../Frontend/Chat/dist")));
+  
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "../../Frontend/Chat/dist", "index.html"));
+    });
+  }
+  
 
 
 const PORT=process.env.PORT;
