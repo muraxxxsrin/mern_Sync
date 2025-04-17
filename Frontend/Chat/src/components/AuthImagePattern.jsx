@@ -36,7 +36,7 @@ const AuthImagePattern = ({ title, subtitle }) => {
                   animation: `fadeInOut 3s ease-in-out infinite ${i * 0.5}s`, 
                 }}
               >
-                <Icon className="w-6 h-6 text-white opacity-80" />
+                <Icon className="w-6 h-6 text-red-500 opacity-80" />
               </div>
             );
           })}

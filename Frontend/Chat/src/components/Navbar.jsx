@@ -17,7 +17,7 @@ const Navbar = () => {
               <div className="size-9 rounded-lg bg-primary/10 flex items-center justify-center transform group-hover:scale-125 group-hover:rotate-180 transition-transform">
                 <Origami className="w-5 h-5 text-primary rotate-180" />
               </div>
-              <h1 className="text-lg font-bold">Sync.</h1>
+              <h1 className="text-lg font-bold">Ping.</h1>
             </Link>
           </div>
 
